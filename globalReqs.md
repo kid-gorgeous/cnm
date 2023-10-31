@@ -42,15 +42,15 @@ K-Nearest Neighborhood, and SVM for feature recognition. ...
 [1. A FaceNet-Style Approach to Facial Recognition on the Google Coral Development board](https://towardsdatascience.com/a-facenet-style-approach-to-facial-recognition-dc0944efe8d1)
 
 #### Datasets:
-[1. One-dimensional CNN for human behavior classification](https://towardsdatascience.com/one-dimensional-cnn-for-human-behavior-classification-fb4371d03633)
+- [1. One-dimensional CNN for human behavior classification](https://towardsdatascience.com/one-dimensional-cnn-for-human-behavior-classification-fb4371d03633)
     - This will cover behavioral paradigms
-[2. Machine learning for cognitive behavioral analysis: datasets, methods, paradigms, and research directions](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10390406/)
-[3. Miami University Deception Detection Database](https://sc.lib.miamioh.edu/handle/2374.MIA/6067)
+- [2. Machine learning for cognitive behavioral analysis: datasets, methods, paradigms, and research directions](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10390406/)
+- [3. Miami University Deception Detection Database](https://sc.lib.miamioh.edu/handle/2374.MIA/6067)
     - I have followed up with the creator of this Dataset
     - It is password protected and I plan to follow up with Denver University
-[4. Chinese Academy of Sciences Micro-expression](http://casme.psych.ac.cn/casme/index)
+- [4. Chinese Academy of Sciences Micro-expression](http://casme.psych.ac.cn/casme/index)
     - Microexpressions
-[5.Stress Detection in Working People](https://www.sciencedirect.com/science/article/pii/S187705091731904X)
+- [5.Stress Detection in Working People](https://www.sciencedirect.com/science/article/pii/S187705091731904X)
     - Stress evalutated dataset
 
 
