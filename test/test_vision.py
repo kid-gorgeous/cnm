@@ -26,8 +26,8 @@ class Video():
         cap = cv2.VideoCapture(0)
 
         # Define the codec and create a VideoWriter object
-        fourcc = cv2.VideoWriter_fourcc(*'XVID')
-        out = cv2.VideoWriter('output.avi', fourcc, 20.0, (640, 480))
+        fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+        out = cv2.VideoWriter('output.mp4', fourcc, 20.0, (640, 480))
 
         while True:
             ret, frame = cap.read()
@@ -46,5 +46,7 @@ class Video():
         print("Video saved")
 
 
-video = Video('')
-video.camera()
+if __name__ == '__main__':
+    video = Video()
+    video.camera()
+    #video.capture()
