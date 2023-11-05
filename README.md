@@ -1,4 +1,4 @@
 ### Cheat No More
 
-Build to revolutionize test taking globally.
+Built to revolutionize test taking internationally. Get pwnd N3Rds. Lol
 

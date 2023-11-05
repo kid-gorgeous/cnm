@@ -1,0 +1,8 @@
+# Folders
+imgs/
+notebooks/
+
+# Files
+.DS_Store
+*.ipynb
+*.pyc

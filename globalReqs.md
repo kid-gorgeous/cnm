@@ -14,9 +14,10 @@
 - .NET MAUI
 
 ### Analysis/Training Methods:
-Scope: Monitoring features to begin with, and AI enhancements to further the focus of the models and feature. Increase accurcy and integrityare of the utmost concern.
 
-K-Nearest Neighborhood, and SVM for feature recognition. ...
+Perform an EDA on the population. Understand and to abide by the Student Ethical Outcome. Search for clear indication to support the reason for cheating, and lack of learning. Narrow down on age critierea, and hypothesize about the an age that could benefit most from this project.
+
+Scope: Monitoring features to begin with, and AI enhancements to further the focus of the models and feature. Increase accurcy and integrity are of the utmost concern.
 
 ### Market Research:
 - SSV
@@ -54,4 +55,3 @@ K-Nearest Neighborhood, and SVM for feature recognition. ...
     - Stress evalutated dataset
 
 
-https://www.kaggle.com/datasets/gaurav2022/mobile-health/

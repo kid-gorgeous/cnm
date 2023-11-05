@@ -7,10 +7,16 @@ class Video():
     def __init__(self, path=''):
         self.path = path
 
-    def camera(self):
+    def camera(self, video_size):
+
+        xsize = int(video_size[0])
+        ysize = int(video_size[1])
+
         print("Starting Camera")
 
         cap = cv2.VideoCapture(0)
+        cap.set(cv2.CAP_PROP_FRAME_WIDTH, xsize)
+        cap.set(cv2.CAP_PROP_FRAME_HEIGHT, ysize)
         while True:
             ret, frame = cap.read()
             if ret:
@@ -22,6 +28,7 @@ class Video():
         cap.release()
         cv2.destroyAllWindows()
 
+    # Helper Function to record video ( might work )
     def capture(self):
         cap = cv2.VideoCapture(0)
 
@@ -45,8 +52,15 @@ class Video():
         cv2.destroyAllWindows()
         print("Video saved")
 
+    
+
 
 if __name__ == '__main__':
-    video = Video()
-    video.camera()
-    #video.capture()
+
+    # Example: 
+    # video_size = ['720', '480']
+    # video = Video()
+    # video.camera(video_size)
+
+
+    pass
