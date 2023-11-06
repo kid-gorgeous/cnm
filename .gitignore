@@ -3,7 +3,9 @@ imgs/
 notebooks/
 
 # Files 
-/test_model.py
+/test_torchvision.py
+/test_m1.py
+
 
 # Extensions
 .DS_Store
