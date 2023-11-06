@@ -1,22 +1,26 @@
+# !/usr/bin/env python
+# -*- coding: utf-8 -*-
+# !pip3 install opencv-python
+# !pip3 install termcolor
+
 
 import cv2
+from termcolor import colored
 print("Open CV version: ",cv2.__version__)
 
 
 class Video():
-    def __init__(self, path=''):
+    def __init__(self, path='', video_size=[]):
+        self.video_size = video_size
+        self.xsize = int(self.video_size[0])
+        self.ysize = int(self.video_size[1])
         self.path = path
 
-    def camera(self, video_size):
-
-        xsize = int(video_size[0])
-        ysize = int(video_size[1])
-
+    def camera(self):
         print("Starting Camera")
-
         cap = cv2.VideoCapture(0)
-        cap.set(cv2.CAP_PROP_FRAME_WIDTH, xsize)
-        cap.set(cv2.CAP_PROP_FRAME_HEIGHT, ysize)
+        cap.set(cv2.CAP_PROP_FRAME_WIDTH, self.xsize)
+        cap.set(cv2.CAP_PROP_FRAME_HEIGHT, self.ysize)
         while True:
             ret, frame = cap.read()
             if ret:
@@ -58,9 +62,6 @@ class Video():
 if __name__ == '__main__':
 
     # Example: 
-    # video_size = ['720', '480']
-    # video = Video()
-    # video.camera(video_size)
-
-
-    pass
+    video_size = ['720', '480']
+    video = Video(video_size=video_size)
+    video.camera()
