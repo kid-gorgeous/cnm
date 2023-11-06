@@ -4,6 +4,7 @@ notebooks/
 
 # Files 
 /test_torchvision.py
+/test_vision.py
 /test_m1.py
 
 
