@@ -3,18 +3,28 @@ import yaml
 from termcolor import colored
 
 class configuration:
-    def __init__(self, filename):
+    
+    def __init__(self, filename, host='localhost', port=9999):
         self.filename = filename
         self.video = False
         self.video_size = [720, 480]
         self.text = '### YAML CONFIGURATION FILE ###'
+        self.features = []
+        self.face_recognition = False
+        self.host = 'localhost'
+        self.port = 9999
 
     def create_yaml(self):
         data = {
             'filename': f"{self.filename}",
             'video': self.video,
             'video_size': self.video_size,
+            'device': 'mps', # unless windows then 'cpu'
             'text' : self.text,
+            'features': []
+            'face_recognition': False,
+            'host': 'localhost',
+            'port': 9999,
         }
 
         try:
