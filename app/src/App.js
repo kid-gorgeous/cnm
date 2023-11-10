@@ -1,3 +1,5 @@
+import * as React from 'react';
+import Button from '@mui/material/Button';
 import logo from './logo.svg';
 import './App.css';
 
@@ -9,14 +11,14 @@ function App() {
         <p>
           Welcome to our React App. 
         </p>
-        <a
-          className="App-link"
+        
+        <Button variant="contained"
+          className= "App-link"
           href="https://reactjs.org"
           target="_blank"
-          rel="noopener noreferrer"
-        >
+          rel="noopener noreferrer">
           Learn React
-        </a>
+        </Button>
 
         <a
           className = 'Github-link'

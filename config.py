@@ -21,7 +21,7 @@ class configuration:
             'video_size': self.video_size,
             'device': 'mps', # unless windows then 'cpu'
             'text' : self.text,
-            'features': []
+            'features': [],
             'face_recognition': False,
             'host': 'localhost',
             'port': 9999,
@@ -80,7 +80,8 @@ class configuration:
 
 if __name__ == '__main__':
     # Examples:
-    # filename = 'config.yaml'
-    # config = configuration(filename)
-    # settings = config.load_config()
-    # print(settings)
+    filename = 'config.yaml'
+    config = configuration(filename)
+    settings = config.load_config()
+    print(settings)
+    
