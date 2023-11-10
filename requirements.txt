@@ -5,3 +5,4 @@ urllib
 termcolor
 keras
 pyyaml
+react
