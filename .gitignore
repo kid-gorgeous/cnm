@@ -2,6 +2,7 @@
 train/
 imgs/
 notebooks/
+node_modules/
 
 # Files 
 /test_torchvision.py
@@ -13,3 +14,4 @@ notebooks/
 *.ipynb
 *.pyc
 *.yaml
+*.json
