@@ -1,4 +1,4 @@
-cv2==4.8.0
+opencv-python
 numpy
 torch
 urllib
