@@ -8,6 +8,7 @@ node_modules/
 /test_torchvision.py
 /test_vision.py
 /test_m1.py
+/cnn.py
 
 # Extensions
 .DS_Store

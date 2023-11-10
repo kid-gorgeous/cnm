@@ -53,5 +53,4 @@ Scope: Monitoring features to begin with, and AI enhancements to further the foc
     - Microexpressions
 - [5.Stress Detection in Working People](https://www.sciencedirect.com/science/article/pii/S187705091731904X)
     - Stress evalutated dataset
-
-https://archive.ics.uci.edu/dataset/124/cmu+face+images
+- [6. Face Image Dataset](https://archive.ics.uci.edu/dataset/124/cmu+face+images)

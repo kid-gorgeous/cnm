@@ -1,0 +1,1 @@
+Hi before using these files, uncomment the pip installers. They will automatically install the necassary packages 
