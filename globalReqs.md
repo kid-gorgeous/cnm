@@ -9,9 +9,9 @@
 - Privacy Concerns (FIPPA)
 
 #### Frameworks Ideas:
-- Flask
-- React
-- .NET MAUI
+- Flask / Fast API
+- React / Next / Express 
+- .NET MAUI (if there is literally no other way)
 
 ### Analysis/Training Methods:
 
