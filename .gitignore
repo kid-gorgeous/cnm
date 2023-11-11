@@ -1,8 +1,8 @@
 # Folders
-train/
 imgs/
 notebooks/
 node_modules/
+models/
 
 # Files 
 /test_torchvision.py
