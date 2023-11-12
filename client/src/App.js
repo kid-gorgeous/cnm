@@ -39,6 +39,7 @@ function App() {
 
   return (
     <div className="App">
+      {/* // TODO: Refactor this to use a component */}
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -49,7 +50,6 @@ function App() {
             <p>Fetching data from the server...</p>
           )}
           {error && <p>Error: {error.message}</p>}
-
           <p>{JSON.stringify(data)}</p>
           Edit <code>src/App.js</code> and save to reload.
         </p>

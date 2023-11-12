@@ -2,7 +2,8 @@
 imgs/
 notebooks/
 node_modules/
-models/
+# models/
+__pycache__/
 
 # Files 
 /test_torchvision.py

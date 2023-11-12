@@ -12,3 +12,10 @@ def sigmoid(x: float) -> float:
 def derivative_sigmoid(x: float) -> float:
     sig: float = sigmoid(x)
     return sig * (1 - sig)
+
+class util:
+    def __init__(self):
+        pass
+
+    def __name__(self):
+        return "util"
