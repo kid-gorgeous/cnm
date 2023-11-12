@@ -85,12 +85,26 @@ class configuration:
         with open(self.filename, 'w') as file:
             yaml.dump(config, file, default_flow_style=False)
 
+    
 
 if __name__ == '__main__':
+
     # Examples:
     # filename = 'config.yaml'
     # config = configuration(filename)
+
+    # Download file and change username to specify a user
+    #   to create a file path. I have not added this os feature 
+    #   to the default configuration constructor (__init__)
     # config.add_user('username')
+
+    # Display the YAML information for conformation
     # settings = config.load_config()
     # print(settings)
+
     pass
+
+# TODO: 
+#   - Create a configuration file for the your username to link the path names
+#   - Add os operations to the default ctor to create a symbolic link for the user name
+#   - Add a class method function to add a feature to the YAML file
