@@ -13,6 +13,7 @@ class configuration:
         self.face_recognition = False
         self.host = 'localhost'
         self.port = 9999
+        self.user = 'root'
 
     def create_yaml(self):
         data = {
@@ -25,6 +26,7 @@ class configuration:
             'face_recognition': False,
             'host': 'localhost',
             'port': 9999,
+            'user': 'user' 
         }
 
         try:
@@ -36,6 +38,12 @@ class configuration:
 
         except Exception as e:
             print(colored(e, 'red'))
+
+    def add_user(self, user):
+        data = self.read_yaml()
+        data['user'] = user
+        with open(self.filename, 'w') as file:
+            yaml.dump(data, file, default_flow_style=False)
 
     def read_yaml(self):
         try:
@@ -80,8 +88,9 @@ class configuration:
 
 if __name__ == '__main__':
     # Examples:
-    filename = 'config.yaml'
-    config = configuration(filename)
-    settings = config.load_config()
-    print(settings)
-    
+    # filename = 'config.yaml'
+    # config = configuration(filename)
+    # config.add_user('username')
+    # settings = config.load_config()
+    # print(settings)
+    pass
