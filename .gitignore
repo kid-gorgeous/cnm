@@ -2,7 +2,7 @@
 imgs/
 notebooks/
 node_modules/
-# models/
+
 __pycache__/
 
 # Files 

@@ -1,9 +1,32 @@
 import os
 import yaml
+import json
+import argparse
 from termcolor import colored
 
+# If this arguements wrong, print the help message that will offer the correct arguements
+class CustomArgumentParser(argparse.ArgumentParser):
+    def error(self, message):
+        self.print_help()
+        print(colored("config.py: error: {}\n".format(message), 'red'))
+        print(colored("Please provide the config name with --config <config_name>", 'red'))
+        exit(2)
+
+# This class will create a YAML configuration file for the user
+#  to specify the path to the data, and the path to the external hard drive
+# TODO: change default file path to a virtual path so when the operating system detects
+# the hard drive it will automatically create a symbolic link to the external hard drive
 class configuration:
-    
+    def help(self):
+        message = """
+            -h or --help: Display the help message
+            --filename: Specify the name of the YAML configuration file
+            --config: Display the contents of the YAML configuration file
+            --create: Create a YAML configuration file
+            --user: Add a user to the YAML configuration file
+        """
+        print(colored("{}\n".format(message), 'green'))
+
     def __init__(self, filename, host='localhost', port=9999):
         self.filename = filename
         self.video = False
@@ -15,9 +38,10 @@ class configuration:
         self.port = 9999
         self.user = 'root'
 
-    def create_yaml(self):
+    # Creates a YAML file with the default conditions
+    def create_yaml(self, filename):
         data = {
-            'filename': f"{self.filename}",
+            'filename': self.filename,
             'video': self.video,
             'video_size': self.video_size,
             'device': 'mps', # unless windows then 'cpu'
@@ -28,34 +52,39 @@ class configuration:
             'port': 9999,
             'user': 'user' 
         }
-
         try:
             if not os.path.exists(self.filename):
                 with open(self.filename, 'w') as file:
                     yaml.dump(data, file, default_flow_style=False)
             else:
-                raise Exception("File already exists \n")
-
+                raise Exception("{}\n".format(data))
         except Exception as e:
-            print(colored(e, 'red'))
+            print(colored(e, 'green'))
 
+    # Adds a user to the YAML file
     def add_user(self, user):
-        data = self.read_yaml()
-        data['user'] = user
-        with open(self.filename, 'w') as file:
-            yaml.dump(data, file, default_flow_style=False)
+        try:
+            data = self.load_config()
+            
+            data.update({'user': user})
 
+            with open(self.filename, 'w') as file:
+                yaml.dump(data, file, default_flow_style=False)
+        except Exception as e:
+            print("Error updating user: {}".format(e))
+
+    # Reads the YAML file
     def read_yaml(self):
         try:
             with open(self.filename, 'r') as file:
                 data = yaml.safe_load(file)
-            return data
+            return json.dumps(data)
 
         except FileNotFoundError:
-            print(f"File {self.filename} not found.")
+            print("File {} not found.".format(self.filename))
 
         except yaml.YAMLError as exc:
-            print(f"Error in configuration file: {exc}")
+            print("Error in configuration file: {}".format(exc))
     
     def load_config(self):
         if not os.path.exists(self.filename):
@@ -63,6 +92,7 @@ class configuration:
                 self.video = config['video']
                 self.video_size = config['video_size']
                 self.text = config['text']
+
                 yaml.safe_dump({'features': []}, file)
 
         elif os.path.getsize(self.filename) == 0:
@@ -74,22 +104,12 @@ class configuration:
         if not isinstance(config, dict):
             raise TypeError('Expected a dictionary in the YAML file')
         return config
-
-    def addfeature(self, feature):
-        config = self.load_config()
-        if 'features' not in config:
-            config['features'] = []
-        elif not isinstance(config['features'], list):
-            raise ValueError('Expected a list under the key "features" in the YAML file')
-        config['features'].append(feature)
-        with open(self.filename, 'w') as file:
-            yaml.dump(config, file, default_flow_style=False)
-
     
 
 if __name__ == '__main__':
 
     # Examples:
+
     # filename = 'config.yaml'
     # config = configuration(filename)
 
@@ -102,7 +122,29 @@ if __name__ == '__main__':
     # settings = config.load_config()
     # print(settings)
 
-    pass
+#-------------------------#
+    # Adding parser for cli interaction
+    parser = argparse.ArgumentParser(description='Create a YAML configuration file')
+
+    parser.add_argument('--filename', type=str, default='config.yaml', help='Name of the configuration file')
+    parser.add_argument('--config', action='store_true', help='Display contents of the configuration file') 
+    parser.add_argument('--create', action='store_true', help='Create a YAML configuration file')
+    parser.add_argument('--user', type=str, help='Add a user to the YAML configuration file')
+
+    args = parser.parse_args()
+    config = configuration(args.filename)
+
+    if args.create:
+        config.create_yaml(args.filename)
+    if args.config:
+        config.read_yaml()
+    if args.user:
+        config.add_user(args.user)
+    if args.filename:
+        config.filename = args.filename
+        # print(colored("{}".format(config.filename), "green"))
+    else:
+        pass
 
 # TODO: 
 #   - Create a configuration file for the your username to link the path names

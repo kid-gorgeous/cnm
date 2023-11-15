@@ -12,9 +12,7 @@ from sklearn.datasets import fetch_olivetti_faces, load_sample_image
 print(colored("Tensorflow version: ", 'green'), tf.__version__)
 
 # anticipate that the vgg face dataset is importable 
-class Neuron: 
-    def __init__(self):
-        pass
+
 
 # Sequential method 
 class ConvNET:
@@ -35,8 +33,8 @@ class ConvNET:
         print(colored('Current working path: ', 'green'), self.cwd)
 
 
-    def getModel(self):
-        return self.model  
+    def SetModel(self):
+        print(self.model.summary(...))
 
 def printWorkingDir(path):
     print(colored("Working path to external hard drive: ", 'green'), path)
@@ -62,31 +60,7 @@ if __name__ == '__main__':
 
     train_img_path = '/Volumes/hd/Data/VGG-Face2/data/train/n000002/0001_01.jpg'
     
-    image = cv2.imread(train_img_path, cv2.IMREAD_GRAYSCALE)
-    image_arr = np.array([image])
-    batch_size, height, width, channels = image_arr.shape
 
 
 
     
-    # # Create 2 filters
-    # filters = np.zeros(shape=(7, 7, channels, 2), dtype=np.float32)
-    # filters[:, 3, :, 0] = 1 # vertical line
-    # filters[3, :, :, 1] = 1 # horizontal line
-
-    # outputs = tf.nn.conv2d(image_arr, filters, strides=1, padding="SAME")
-    # plt.imshow(outputs[0, :, :, 1], cmap="gray") # plot 1st image's 2nd feature map
-    # plt.show()
-
-    # print(colored("Batch size: ", 'green'), batch_size)
-    # print(colored("Height: ", 'green'), height)
-    # print(colored("Width: ", 'green'), width)
-    # print(colored("Image shape: ", 'green'), image.shape)
-    # print(colored("Image type: ", 'green'), type(image))
-
-
-
-
-    # cv2.imshow('image', image)
-    # cv2.waitKey(0)
-    # cv2.destroyAllWindows()

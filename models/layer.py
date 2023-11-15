@@ -3,29 +3,43 @@ from typing import List, Callable, Optional
 
 import os
 import yaml
+import numpy as np
 
+from math import exp
+from typing import List
 from neuron import Neuron
 from random import random 
 from termcolor import colored
 
+float = np.float32
 
+# Helpers becuase they didnt work in the util directory
+# dot product of two vectors
+def dot(xs: List[float], ys: List[float]) -> float:
+    return sum(x * y for x, y in zip(xs, ys))
 
-# TODO: automate the user feature 
-# The next 13 lines of code are used to load the configuration file to create a symbolic link for the user name
-# to Load the configuration file and import the utils folder
-with open('../config.yaml', 'r') as file:
-    config = yaml.safe_load(file)
-    env_user = config['user']
+# sigmoid function
+def sigmoid(x: float) -> float:
+    return 1.0 / (1.0 + exp(-x))
 
-# Get the environment variable name from the YAML file 
-# user = str(os.getenv(env_user))
-print(colored(f"User: {env_user}", 'red'))
+def derivative_sigmoid(x: float) -> float:
+    sig: float = sigmoid(x)
+    return sig * (1 - sig)
 
-# Adding the path to the utils folder and main directory 
-import sys
-sys.path.append(f'/Users/{env_user}/cnm/utils')
-sys.path.append(f'/Users/{env_user}/cnm')
+# Importing python libraries 
+from typing import List, Callable, Optional
+from random import random
+from neuron import Neuron
+# from util import dot, sigmoid, derivative_sigmoid
 
-from util import dot, sigmoid, derivative_sigmoid
-print(colored("Importing Neuron class from neuron.py", 'green'))
-print(colored("Util name: ", 'green'), util.__name__)
+# Class model
+class Layer: 
+    def __init__(self, previous_layer: Optional[Layer], num_neurons: int,
+                 learning_rate: float, activation_function: Callable[[float], float],
+                 derivation_activation_function: Callable[[float], float]) -> None:
+        self.previous_layer: Optional[Layer] = previous_layer
+        self.neurons: List[Neuron] = []
+
+        
+
+        
