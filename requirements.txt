@@ -1,9 +1,8 @@
 opencv-python
 numpy
 torch
-# urllib
 termcolor
 keras
 pyyaml
-yaml
 react
+pydantic
