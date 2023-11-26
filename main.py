@@ -5,6 +5,34 @@ import subprocess
 
 INSTALL = 'pip install -r requirements.txt'
 
+def check_python_installed():
+    command = "python3 --version"
+    process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+    stdout, stderr = process.communicate()
+
+    if process.returncode != 0:
+        print("Python is not installed.")
+    else:
+        print(f"Python is installed: {stdout.decode('utf-8')}")
+
+def check_node_installed():
+    command = "node --version"
+    process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+    stdout, stderr = process.communicate()
+
+    if process.returncode != 0:
+        print("Node is not installed.")
+    else:
+        print(f"Node is installed: {stdout.decode('utf-8')}")
+
+
+def check_dependencies():
+    
+    check_python_installed()
+    
+    check_node_installed()
+
+
 def install_requirements():
     process = subprocess.Popen(INSTALL, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
     stdout, stderr = process.communicate()
@@ -32,3 +60,7 @@ if __name__ == '__main__':
     config.create_yaml()
     print('Configuration file created.')
 
+
+    # check if the dependencies are installed
+    check_dependencies()
+    print('Dependencies installed.')
